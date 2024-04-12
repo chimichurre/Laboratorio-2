@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Constatar que se haya proporcionado un argumento
+#CONSTATAR que se haya proporcionado un argumento
 if [ $# -ne 1 ]; then
     echo "Uso: $0 <PID>"
     exit 1
