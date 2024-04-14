@@ -1,0 +1,25 @@
+[Unit]
+Description=Servicio de Monitoreo de Cambios en Directorios
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/amena/Documents/LAB2/script4.sh
+
+#Especificar el directorio de trabajo para asegurarnos de que el script se ejecute con el contexto de directorio correcto.
+WorkingDirectory=/home/amena/Documents/LAB2
+
+#Reiniciar el servicio en caso de fallo.
+Restart=on-failure
+
+#Esperar 5 segundos antes de reiniciar el servicio.
+RestartSec=5s
+
+#Redirigir la salida estándar del script al journal de systemd para facilitar el acceso a logs.
+StandardOutput=journal
+
+#Heredar la configuración de error estándar (esto redirigirá errores al journal si StandardOutput está configurado para journal).
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
